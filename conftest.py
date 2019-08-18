@@ -19,7 +19,7 @@ def browser(request):
     else:
         raise Exception(f"{request.param} is not supported!")
 
-    driver.implicitly_wait(10)
+    driver.implicitly_wait(20)
     request.addfinalizer(driver.close)
     driver.get(request.config.getoption("--url"))
 
@@ -38,7 +38,7 @@ def parametrize_browser(request):
     else:
         raise Exception(f"{request.param} is not supported!")
 
-    driver.implicitly_wait(10)
+    driver.implicitly_wait(20)
     request.addfinalizer(driver.quit)
     driver.get(request.config.getoption("--url"))
 
