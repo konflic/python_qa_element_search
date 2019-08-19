@@ -1,5 +1,12 @@
+
+
 d = {"key": "value"}
 
-d["super_key"]
-
 # Обработка исключения KeyError
+
+try:
+
+    d["super_key"]
+
+except KeyError:
+    pass
