@@ -1,4 +1,3 @@
 class MainPage:
-
-    nav_links = "ul.nav > li"
-    promoblock = "swiper-viewport"
+    NAV_LINKS = "ul.nav > li"
+    PROMOBLOCK = "swiper-viewport"

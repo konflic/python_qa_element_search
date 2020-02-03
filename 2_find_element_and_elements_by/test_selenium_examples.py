@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 
-from locators import MainPage
+from locators import MainPage, Alert
 from selenium.webdriver.common.action_chains import ActionChains
 
 
@@ -14,7 +14,7 @@ def test_element_by_xpath(browser):
     browser.find_element_by_xpath("//div[@class='swiper-viewport']").click()
     browser.find_element_by_xpath("//*[@class='breadcrumb']")
     browser.find_element_by_xpath("//button[@data-original-title='Add to Wish List']").click()
-    browser.find_element_by_xpath("//div[contains(@class, 'alert-success')]")
+    browser.find_element_by_xpath(Alert.SUCCESS)
 
 
 def test_element_by_id(browser):
