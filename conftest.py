@@ -11,11 +11,12 @@ def pytest_addoption(parser):
 def browser(request):
     browser_param = request.config.getoption("--browser")
     if browser_param == "chrome":
-        driver = webdriver.Chrome()
+        driver = webdriver.Chrome(executable_path="drivers/chromedriver79")
     elif browser_param == "firefox":
-        driver = webdriver.Firefox()
-    elif browser_param == "safari":
-        driver = webdriver.Safari()
+        driver = webdriver.Firefox(executable_path="drivers/geckodriver")
+    # Для MacOS
+    # elif browser_param == "safari":
+    #     driver = webdriver.Safari()
     else:
         raise Exception(f"{request.param} is not supported!")
 

@@ -6,7 +6,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 
 def test_element_by_class_name_selector(parametrize_browser):
     bro = parametrize_browser
-    bro.find_element_by_class_name(MainPage.promoblock).click()
+    bro.find_element_by_class_name(MainPage.PROMOBLOCK).click()
     bro.find_element_by_class_name("breadcrumb")
 
 
@@ -30,7 +30,7 @@ def test_element_by_link_text(browser):
 
 
 def test_elements_by_css_selector(browser):
-    navbar_items = browser.find_elements(MainPage.nav_links)
+    navbar_items = browser.find_elements(MainPage.NAV_LINKS)
     for item in navbar_items:
         ActionChains(browser).move_to_element(item).pause(0.5).perform()
 
