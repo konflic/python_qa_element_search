@@ -2,8 +2,6 @@
 __pycache__/
 *.py[cod]
 *$py.class
-.idea/
-.vs_code
 
 # C extensions
 *.so
@@ -105,5 +103,8 @@ venv.bak/
 # mypy
 .mypy_cache/
 
-# drivers
+# my
 drivers/
+.idea/
+.vs_code
+.DS_Store

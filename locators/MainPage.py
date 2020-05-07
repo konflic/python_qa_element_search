@@ -1,3 +1,4 @@
+from selenium.webdriver.common.by import By
+
 class MainPage:
-    NAV_LINKS = "ul.nav > li"
-    PROMOBLOCK = "swiper-viewport"
+    pass
