@@ -1,1 +1,0 @@
-from .MainPage import MainPage

@@ -1,4 +1,5 @@
 import pytest
+import os
 
 from selenium import webdriver
 
@@ -6,7 +7,7 @@ from selenium import webdriver
 def pytest_addoption(parser):
     parser.addoption("--browser", action="store", default="chrome")
     parser.addoption("--url", action="store", default="https://demo.opencart.com/")
-    parser.addoption("--drivers", action="store", default="/usr/local/games")
+    parser.addoption("--drivers", action="store", default=os.path.expanduser("~/Downloads/drivers"))
 
 
 @pytest.fixture

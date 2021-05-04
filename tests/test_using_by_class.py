@@ -1,5 +1,7 @@
 import time
+
 from selenium.webdriver.common.by import By
+from locators.LoginAdminPage import LoginAdminPage
 
 
 def test_login_page(browser):
@@ -9,4 +11,14 @@ def test_login_page(browser):
     browser.find_element(By.CSS_SELECTOR, "button[type='submit']")
     browser.find_element(By.LINK_TEXT, "Forgotten Password")
     browser.find_element(By.XPATH, "//*[text()='OpenCart']")
-    time.sleep(2) # Для демонстрации
+    time.sleep(2)  # Для демонстрации
+
+
+def test_login_page_external(browser):
+    browser.get(browser.url + "/admin")
+    browser.find_element(*LoginAdminPage.USERNAME_INPUT)
+    browser.find_element(*LoginAdminPage.PASSWORD_INPUT)
+    browser.find_element(*LoginAdminPage.SUBMIT_BUTTON)
+    browser.find_element(*LoginAdminPage.FORGOTTEN_PASSWORD)
+    browser.find_element(*LoginAdminPage.OPENCART_LINK)
+    time.sleep(2)  # Для демонстрации
