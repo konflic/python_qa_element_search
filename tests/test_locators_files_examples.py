@@ -16,6 +16,6 @@ def test_main_page_fetured_items(browser):
 def test_main_page_footer_blocks(browser):
     time.sleep(1)  # Пауза для демонстрации
     footer_blocks = browser.find_elements_by_xpath("//footer//ul")
-    result = footer_blocks[0].location_once_scrolled_into_view
+    print(footer_blocks[0].location_once_scrolled_into_view)
     time.sleep(1)  # Пауза для демонстрации
     assert len(footer_blocks) == 4, "Неверное количество списков ссылок в футере"

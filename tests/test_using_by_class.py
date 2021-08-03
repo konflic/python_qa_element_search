@@ -1,7 +1,7 @@
 import time
 
 from selenium.webdriver.common.by import By
-from locators.LoginAdminPage import LoginAdminPage
+from page_objects.LoginAdminPage import LoginAdminPage
 
 
 def test_login_page(browser):
