@@ -2,6 +2,7 @@ import pytest
 import os
 
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 
 
 def pytest_addoption(parser):
@@ -18,7 +19,9 @@ def browser(request):
     drivers = request.config.getoption("--drivers")
 
     if browser == "chrome":
-        driver = webdriver.Chrome(executable_path=drivers + "/chromedriver")
+        # В selenium 4 рекомендуют использование такого подхода
+        service = Service(executable_path=drivers + "/chromedriver")
+        driver = webdriver.Chrome(service=service)
     elif browser == "firefox":
         driver = webdriver.Firefox(executable_path=drivers + "/geckodriver")
     elif browser == "opera":
