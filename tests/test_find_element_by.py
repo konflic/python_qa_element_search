@@ -1,6 +1,7 @@
 import time
 
 
+# Deprecated!
 def test_login_page(browser):
     browser.get(browser.url + "/admin")
     browser.find_element_by_id("input-username")
