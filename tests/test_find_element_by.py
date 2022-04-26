@@ -1,7 +1,9 @@
 import time
 
-
 # Deprecated!
+from selenium.webdriver.common.by import By
+
+
 def test_login_page(browser):
     browser.get(browser.url + "/admin")
     browser.find_element_by_id("input-username")
