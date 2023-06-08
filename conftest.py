@@ -8,7 +8,7 @@ from selenium.webdriver.firefox.service import Service as FFService
 
 def pytest_addoption(parser):
     parser.addoption("--browser", action="store", default="chrome")
-    parser.addoption("--url", action="store", default="http://192.168.1.88:8081")
+    parser.addoption("--url", action="store", default="http://192.168.0.110:8081")
     parser.addoption("--drivers", action="store", default=os.path.expanduser("~/Downloads/drivers"))
 
 
@@ -17,17 +17,14 @@ def browser(request):
     # Сбор параметров запуска для pytest
     browser = request.config.getoption("--browser")
     url = request.config.getoption("--url")
-    drivers = request.config.getoption("--drivers")
 
     if browser == "chrome":
         # В selenium 4 рекомендуют использование такого подхода
-        service = ChromiumService(executable_path=drivers + "/chromedriver")
+        service = ChromiumService()
         driver = webdriver.Chrome(service=service)
     elif browser == "firefox":
-        service = FFService(executable_path=drivers + "/geckodriver")
+        service = FFService()
         driver = webdriver.Firefox(service=service)
-    elif browser == "opera":
-        driver = webdriver.Opera(executable_path=drivers + "/operadriver")
     else:
         driver = webdriver.Safari()
 
