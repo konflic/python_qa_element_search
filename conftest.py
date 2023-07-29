@@ -1,5 +1,4 @@
 import pytest
-import os
 
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromiumService
@@ -8,21 +7,18 @@ from selenium.webdriver.firefox.service import Service as FFService
 
 def pytest_addoption(parser):
     parser.addoption("--browser", action="store", default="chrome")
-    parser.addoption("--url", action="store", default="http://192.168.0.110:8081")
-    parser.addoption("--drivers", action="store", default=os.path.expanduser("~/Downloads/drivers"))
+    parser.addoption("--url", action="store", default="http://demo.opencart.com")
 
 
-@pytest.fixture
+@pytest.fixture()
 def browser(request):
-    # Сбор параметров запуска для pytest
-    browser = request.config.getoption("--browser")
+    browser_name = request.config.getoption("--browser")
     url = request.config.getoption("--url")
 
-    if browser == "chrome":
-        # В selenium 4 рекомендуют использование такого подхода
+    if browser_name == "chrome":
         service = ChromiumService()
         driver = webdriver.Chrome(service=service)
-    elif browser == "firefox":
+    elif browser_name == "firefox":
         service = FFService()
         driver = webdriver.Firefox(service=service)
     else:

@@ -1,4 +1,4 @@
-from page_objects import LoginAdminPage
+from pages import LoginAdminPage
 
 
 def test_login_page_external(browser):

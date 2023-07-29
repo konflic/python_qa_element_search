@@ -1,12 +1,10 @@
 import time
 
-# Deprecated!
 from selenium.webdriver.common.by import By
 
 
 def test_login_page(browser):
     browser.get(browser.url + "/admin")
-    browser.find_element(by=By.CSS_SELECTOR, value="table")
     browser.find_element(By.ID, "input-username1")
     browser.find_element(By.NAME, "password")
     browser.find_element(By.CSS_SELECTOR, "button[type='submit']")
