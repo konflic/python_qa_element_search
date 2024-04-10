@@ -7,7 +7,7 @@ from selenium.webdriver.firefox.options import Options as FFOptions
 
 
 def pytest_addoption(parser):
-    parser.addoption("--browser", action="store", default="firefox")
+    parser.addoption("--browser", action="store", default="chrome")
     parser.addoption("--url", action="store", default="http://192.168.0.114:8081")
 
 
