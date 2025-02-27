@@ -1,3 +1,4 @@
+import platform
 import pytest
 
 from selenium import webdriver
@@ -19,16 +20,16 @@ def browser(request):
     if browser_name == "chrome":
         driver = webdriver.Chrome(service=ChromiumService())
     elif browser_name == "firefox":
-        # service = FFService(executable_path="/snap/bin/geckodriver") Для ubuntu 22.04
-        driver = webdriver.Firefox(options=FFOptions(), service=FFService())
+        if "24.04" in platform.version():
+            service = FFService(executable_path="/snap/bin/geckodriver")
+        else:
+            service = FFService()
+        driver = webdriver.Firefox(options=FFOptions(), service=service)
     else:
         driver = webdriver.Safari()
 
     driver.maximize_window()
 
     request.addfinalizer(driver.close)
-
-    driver.get(url)
-    driver.url = url
 
     return driver
