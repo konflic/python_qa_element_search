@@ -9,7 +9,7 @@ from selenium.webdriver.firefox.options import Options as FFOptions
 
 def pytest_addoption(parser):
     parser.addoption("--browser", action="store", default="chrome")
-    parser.addoption("--url", action="store", default="http://192.168.8.180:8081")
+    parser.addoption("--url", action="store", default="http://192.168.8.169:8081")
 
 
 @pytest.fixture()
@@ -29,6 +29,7 @@ def browser(request):
         driver = webdriver.Safari()
 
     driver.maximize_window()
+    driver.url = url
 
     request.addfinalizer(driver.close)
 
