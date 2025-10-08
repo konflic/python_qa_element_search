@@ -2,8 +2,8 @@ from selenium.webdriver.common.by import By
 
 
 class LoginAdminPage:
-    USERNAME_INPUT = (By.CSS_SELECTOR, "#input-username")
-    PASSWORD_INPUT = (By.NAME, "password")
+    USERNAME_INPUT = (By.CSS_SELECTOR, "#email")
+    PASSWORD_INPUT = (By.NAME, "passwd")
     SUBMIT_BUTTON = (By.CSS_SELECTOR, "button[type='submit']")
-    OPENCART_LINK = (By.XPATH, "//*[text()='OpenCart']")
-    FORGOTTEN_PASSWORD = (By.LINK_TEXT, "Forgotten Password")
+    FORGOTTEN_PASSWORD = (By.PARTIAL_LINK_TEXT, "I forgot my password")
+    STAY_LOGGED_IN = (By.XPATH, '//input[@name="stay_logged_in"]')

@@ -6,4 +6,5 @@ def test_login_page_external(browser):
     browser.find_element(*LoginAdminPage.USERNAME_INPUT)
     browser.find_element(*LoginAdminPage.PASSWORD_INPUT)
     browser.find_element(*LoginAdminPage.SUBMIT_BUTTON)
-    browser.find_element(*LoginAdminPage.OPENCART_LINK)
+    browser.find_element(*LoginAdminPage.FORGOTTEN_PASSWORD)
+    browser.find_element(*LoginAdminPage.STAY_LOGGED_IN)
